@@ -1,0 +1,271 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>JavaScript Documentation</header>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Syntax">Syntax</a>
+        <a class="nav-link" href="#Variables">Variables</a>
+        <a class="nav-link" href="#Functions">Functions</a>
+        <a class="nav-link" href="#DOM_Manipulation">DOM Manipulation</a>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is one of the core technologies of the World Wide Web, alongside HTML and CSS.</p>
+            <p>JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it for client-side page behavior.</p>
+            <p>JavaScript was invented by Brendan Eich in 1995 while he was working at Netscape. It was originally named Mocha, then LiveScript, before finally being named JavaScript.</p>
+            <code>console.log("Hello, World!");</code>
+            <ul>
+                <li>Client-side scripting language</li>
+                <li>Interpreted, not compiled</li>
+                <li>Object-oriented and prototype-based</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Syntax">
+            <header>Syntax</header>
+            <p>JavaScript syntax is the set of rules that define a correctly structured JavaScript program. Understanding syntax is crucial for writing error-free code.</p>
+            <p>JavaScript is case-sensitive and uses the Unicode character set. Instructions are called statements and are separated by semicolons (;).</p>
+            <code>let x = 5;
+let y = 6;
+let z = x + y;</code>
+            <p>JavaScript statements often contain variables, operators, expressions, keywords, and comments.</p>
+            <ul>
+                <li>Semicolons are optional but recommended</li>
+                <li>Curly braces define code blocks</li>
+                <li>Comments can be single-line (//) or multi-line (/* */)</li>
+                <li>Identifiers are case-sensitive</li>
+            </ul>
+            <code>// This is a single-line comment
+/* This is a
+multi-line comment */</code>
+        </section>
+
+        <section class="main-section" id="Variables">
+            <header>Variables</header>
+            <p>Variables are containers for storing data values. In JavaScript, variables are declared using var, let, or const keywords.</p>
+            <p>The <code>var</code> keyword was used in older versions of JavaScript. The <code>let</code> and <code>const</code> keywords were introduced in ES6 (2015).</p>
+            <code>var name = "John";
+let age = 30;
+const PI = 3.14159;</code>
+            <p>Variables declared with <code>let</code> have block scope, while those declared with <code>var</code> have function scope.</p>
+            <p>The <code>const</code> declaration creates a read-only reference to a value. It does not mean the value it holds is immutable.</p>
+            <ul>
+                <li><code>var</code> - function-scoped, can be redeclared</li>
+                <li><code>let</code> - block-scoped, cannot be redeclared</li>
+                <li><code>const</code> - block-scoped, cannot be redeclared or reassigned</li>
+            </ul>
+            <code>let message = "Hello";
+message = "Hello World"; // This is allowed
+
+const greeting = "Hi";
+// greeting = "Hello"; // This would cause an error</code>
+        </section>
+
+        <section class="main-section" id="Functions">
+            <header>Functions</header>
+            <p>Functions are one of the fundamental building blocks in JavaScript. A function is a JavaScript procedure—a set of statements that performs a task or calculates a value.</p>
+            <p>To use a function, you must define it somewhere in the scope from which you wish to call it.</p>
+            <code>function greet(name) {
+    return "Hello, " + name + "!";
+}</code>
+            <p>Functions can also be defined using arrow syntax, which was introduced in ES6:</p>
+            <code>const greet = (name) => {
+    return "Hello, " + name + "!";
+};</code>
+            <p>Functions can accept parameters and return values. They can also be assigned to variables, passed as arguments to other functions, and returned from functions.</p>
+            <ul>
+                <li>Function declarations are hoisted</li>
+                <li>Function expressions are not hoisted</li>
+                <li>Arrow functions have lexical this binding</li>
+                <li>Functions can be immediately invoked (IIFE)</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="DOM_Manipulation">
+            <header>DOM Manipulation</header>
+            <p>The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content.</p>
+            <p>JavaScript can manipulate the DOM to dynamically update content, handle events, and modify styles.</p>
+            <code>// Select an element
+const element = document.getElementById("myElement");
+
+// Change content
+element.innerHTML = "New content";
+
+// Add a class
+element.classList.add("highlight");</code>
+            <p>Common DOM methods include <code>getElementById()</code>, <code>querySelector()</code>, <code>createElement()</code>, and <code>appendChild()</code>.</p>
+            <p>Event listeners can be added to elements to respond to user interactions:</p>
+            <code>button.addEventListener("click", function() {
+    alert("Button clicked!");
+});</code>
+            <ul>
+                <li><code>document.getElementById()</code> - selects element by ID</li>
+                <li><code>document.querySelector()</code> - selects first matching element</li>
+                <li><code>element.addEventListener()</code> - attaches event handler</li>
+                <li><code>element.style.property</code> - modifies CSS properties</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+/* styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    overflow-y: auto;
+    border-right: 1px solid #34495e;
+}
+
+#navbar header {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #34495e;
+    color: #ecf0f1;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+    color: white;
+    border-left: 3px solid #3498db;
+    padding-left: 17px;
+}
+
+#main-doc {
+    margin-left: 280px;
+    padding: 30px;
+    max-width: 900px;
+}
+
+.main-section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-section header {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.main-section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.main-section code {
+    display: block;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+}
+
+.main-section ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.main-section li {
+    margin-bottom: 8px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    #navbar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #navbar header {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        border-left: none !important;
+    }
+    
+    #main-doc {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+    
+    .main-section {
+        padding: 15px;
+    }
+    
+    .main-section header {
+        font-size: 1.5rem;
+    }
+}
+
+/* Additional styling for code elements */
+code {
+    font-size: 0.95rem;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+** end of styles.css **
+
