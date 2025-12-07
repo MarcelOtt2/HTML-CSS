@@ -1,0 +1,159 @@
+** start of index.html **
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drum Machine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #drum-machine {
+      background: #1e1e1e;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    #display {
+      margin: 16px 0;
+      padding: 12px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      min-height: 2em;
+      border: 2px solid #444;
+    }
+
+    #pad-bank {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .drum-pad {
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 20px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .drum-pad:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
+
+    .drum-pad:active,
+    .drum-pad.playing {
+      background: #0078d7;
+      transform: scale(0.95);
+    }
+
+    .clip {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="drum-machine">
+    <p id="display">Ready to drum!</p>
+    <div id="pad-bank">
+      <!-- Pads will be inserted by JS for cleaner HTML -->
+    </div>
+  </div>
+
+  <script>
+    const sounds = [
+      { key: 'Q', name: 'Heater 1', file: 'Heater-1.mp3' },
+      { key: 'W', name: 'Heater 2', file: 'Heater-2.mp3' },
+      { key: 'E', name: 'Heater 3', file: 'Heater-3.mp3' },
+      { key: 'A', name: 'Heater 4', file: 'Heater-4_1.mp3' },
+      { key: 'S', name: 'Clap', file: 'Heater-6.mp3' },
+      { key: 'D', name: 'Open-HH', file: 'Dsc_Oh.mp3' },
+      { key: 'Z', name: 'Kick-n\'-Hat', file: 'Kick_n_Hat.mp3' },
+      { key: 'X', name: 'Kick', file: 'RP4_KICK_1.mp3' },
+      { key: 'C', name: 'Closed-HH', file: 'Cev_H2.mp3' }
+    ];
+
+    const display = document.getElementById('display');
+    const padBank = document.getElementById('pad-bank');
+
+    // Create drum pads dynamically
+    sounds.forEach(sound => {
+      const pad = document.createElement('div');
+      pad.className = 'drum-pad';
+      pad.id = sound.name.replace(/\s+/g, '-'); // e.g., "Heater-1"
+      pad.textContent = sound.key;
+
+      const audio = document.createElement('audio');
+      audio.className = 'clip';
+      audio.id = sound.key;
+      audio.src = `https://cdn.freecodecamp.org/curriculum/drum/${sound.file}`;
+
+      pad.appendChild(audio);
+      padBank.appendChild(pad);
+
+      // Click handler
+      pad.addEventListener('click', () => playSound(sound.key, sound.name));
+
+      // Optional visual feedback
+      audio.addEventListener('play', () => pad.classList.add('playing'));
+      audio.addEventListener('ended', () => pad.classList.remove('playing'));
+    });
+
+    // Keyboard handler
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toUpperCase();
+      const sound = sounds.find(s => s.key === key);
+      if (sound) {
+        playSound(key, sound.name);
+      }
+    });
+
+    function playSound(key, name) {
+      const audio = document.getElementById(key);
+      if (audio) {
+        // Reset current time to allow rapid re-trigger
+        audio.currentTime = 0;
+        audio.play().catch(e => console.warn('Audio play interrupted:', e));
+        display.textContent = name;
+      }
+    }
+  </script>
+</body>
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+
+
+** end of styles.css **
+
+** start of script.js **
+
+
+
+** end of script.js **
+
